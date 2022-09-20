@@ -10,6 +10,7 @@
 # Ejercicios con archivos
 
 import csv
+from re import I
 
 
 def ej3():
@@ -27,7 +28,20 @@ def ej3():
     # para cumplir con el enunciado del ejercicio
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    archivo = open("stock.csv", "r")
+    stock = list(csv.DictReader(archivo))
+    archivo.close()
+
+    total = 0
+
+    for i in stock:
+        col = i
+        cant_tornillos = int(col.get("tornillos"))
+        total += cant_tornillos
     
+    print("La sumatoria del stock de tornillos es", total)
+
 
 
 def ej4():
@@ -47,6 +61,29 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    archivo = open("propiedades.csv", "r")
+    propiedades = list(csv.DictReader(archivo))
+    archivo.close()
+    
+    amb_2 = 0
+
+    amb_3 = 0
+
+    try:
+        for i in propiedades:
+            ambiente = int(i.get("ambientes"))
+
+        if ambiente == 2:
+            amb_2 += 1
+
+        if ambiente == 3:
+            amb_3 += 1
+        print("La cantidad de departamentos con 2 ambientes es:", amb_2)
+        print("La cantidad de departamentos con 3 ambientes es:", amb_3)
+
+    except:
+        print("El departamento", i, "no tiene 2 ni 3 ambientes")
 
 
 if __name__ == '__main__':

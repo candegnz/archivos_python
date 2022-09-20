@@ -33,6 +33,16 @@ def ej1():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
+    stock = {}
+    stock["Tornillos"] = 100
+    stock["Tuercas"] = 150
+    stock["Arandelas"] = 300
+
+    print("El stock disponible es", stock)
+
+
+    
+
 
 def ej2():
     print('Ejercicio con diccionarios 2º')
@@ -40,7 +50,6 @@ def ej2():
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -66,6 +75,33 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+
+strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+
+while True:
+    producto = str(input("Ingrese que producto desea agregar al stock, sino ingrese Fin: "))
+    if producto in strock:
+        cantidad = int(input("Agregar cantidad deseada de stock: "))
+        agregar_stock = int(cantidad)
+        strock[producto] += agregar_stock
+    else:
+        print("El producto ingresado es inválido")
+
+    if producto == "Fin":
+        print("El stock es:", strock)
+        break
+
+
+
+    
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
